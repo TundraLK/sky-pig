@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://71rony33p8am"]
+
+[ext_resource type="Script" uid="uid://cftqgglw7ptpo" path="res://scripts/coin.gd" id="1_i64fm"]
+[ext_resource type="Texture2D" uid="uid://dks2bq8xj8jfj" path="res://icon.svg" id="1_rwqht"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i64fm"]
+radius = 83.60024
+
+[node name="Coin" type="Area2D" unique_id=907763962]
+modulate = Color(0.47971892, 0.47971898, 1.0588765e-06, 1)
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+script = ExtResource("1_i64fm")
+speed = 350
+
+[node name="PlaceholderSprite" type="Sprite2D" parent="." unique_id=118954056]
+texture = ExtResource("1_rwqht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1248981356]
+shape = SubResource("CircleShape2D_i64fm")
+
+[node name="CollectedTimer" type="Timer" parent="." unique_id=1768017404]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="CollectedTimer" to="." method="_on_collected_timer_timeout"]

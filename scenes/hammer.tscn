@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://djng8jcm57xki"]
+
+[ext_resource type="Script" uid="uid://ck4sivfugdijw" path="res://scripts/hammer.gd" id="1_puv5m"]
+[ext_resource type="Texture2D" uid="uid://dks2bq8xj8jfj" path="res://icon.svg" id="1_s5ltg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_puv5m"]
+height = 128.0
+
+[node name="Hammer" type="Area2D" unique_id=620847514]
+collision_layer = 2
+script = ExtResource("1_puv5m")
+speed = 250
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=722808822]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.234375, 1)
+texture = ExtResource("1_s5ltg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=398886015]
+shape = SubResource("CapsuleShape2D_puv5m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

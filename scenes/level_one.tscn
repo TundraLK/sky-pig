@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c2jb4g2a4gamy"]
+
+[ext_resource type="Script" uid="uid://bim60b60ciygu" path="res://scripts/level_one.gd" id="1_t18mc"]
+[ext_resource type="PackedScene" uid="uid://bnjjo7fcwsomq" path="res://scenes/player.tscn" id="2_843q2"]
+[ext_resource type="PackedScene" uid="uid://du8al0j3dvjgh" path="res://scenes/gameplay_interface.tscn" id="3_843q2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd1xg"]
+size = Vector2(1280, 20)
+
+[node name="LevelOne" type="Node2D" unique_id=1113597327]
+script = ExtResource("1_t18mc")
+
+[node name="Player" parent="." unique_id=1026915142 instance=ExtResource("2_843q2")]
+position = Vector2(205, 507)
+
+[node name="Borders" type="Node2D" parent="." unique_id=684390834]
+
+[node name="TopBorder" type="StaticBody2D" parent="Borders" unique_id=1540410495]
+position = Vector2(640, 0)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/TopBorder" unique_id=566093174]
+shape = SubResource("RectangleShape2D_cd1xg")
+
+[node name="BottomBorder" type="StaticBody2D" parent="Borders" unique_id=1455352381]
+position = Vector2(640, 720)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/BottomBorder" unique_id=1726844239]
+shape = SubResource("RectangleShape2D_cd1xg")
+
+[node name="Timers" type="Node" parent="." unique_id=1139482123]
+
+[node name="HammerSpawnTimer" type="Timer" parent="Timers" unique_id=2003044947]
+autostart = true
+
+[node name="CoinTimer" type="Timer" parent="Timers" unique_id=2120049987]
+wait_time = 0.5
+autostart = true
+
+[node name="SceneChangeTimer" type="Timer" parent="Timers" unique_id=1674113446]
+wait_time = 0.5
+
+[node name="DistanceTimer" type="Timer" parent="Timers" unique_id=940577211]
+autostart = true
+
+[node name="Hazards" type="Node2D" parent="." unique_id=2101730101]
+
+[node name="Items" type="Node2D" parent="." unique_id=1907776228]
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=212463777]
+
+[node name="GameplayInterface" parent="Interface" unique_id=79158417 instance=ExtResource("3_843q2")]
+
+[connection signal="player_collected" from="Player" to="." method="_on_player_player_collected"]
+[connection signal="player_destroyed" from="Player" to="." method="_on_player_player_destroyed"]
+[connection signal="timeout" from="Timers/HammerSpawnTimer" to="." method="_on_hammer_spawn_timer_timeout"]
+[connection signal="timeout" from="Timers/CoinTimer" to="." method="_on_coin_timer_timeout"]
+[connection signal="timeout" from="Timers/SceneChangeTimer" to="." method="_on_scene_change_timer_timeout"]
+[connection signal="timeout" from="Timers/DistanceTimer" to="." method="_on_distance_timer_timeout"]

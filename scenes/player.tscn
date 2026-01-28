@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bnjjo7fcwsomq"]
+
+[ext_resource type="Script" uid="uid://bfqy30ib5crh7" path="res://scripts/player.gd" id="1_vecdy"]
+[ext_resource type="Texture2D" uid="uid://cvipxk4xurm4r" path="res://assets/art/player/pig_fall.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://b5nl5sewqqjvr" path="res://assets/art/player/pig_jump.png" id="3_dqkch"]
+[ext_resource type="Texture2D" uid="uid://cwfr32o5bjuck" path="res://assets/art/player/pig_run.png" id="4_dqkch"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("3_dqkch")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smehm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("4_dqkch")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("4_dqkch")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ur7pv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}],
+"loop": true,
+"name": &"run",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_463tp"]
+radius = 83.0
+height = 316.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1026915142]
+scale = Vector2(0.5, 0.5)
+collision_mask = 14
+script = ExtResource("1_vecdy")
+jump_strength = 50
+gravity = 1250
+
+[node name="Fall" type="AnimatedSprite2D" parent="." unique_id=1644498521]
+position = Vector2(0, -55)
+sprite_frames = SubResource("SpriteFrames_tuyoq")
+animation = &"fall"
+
+[node name="Jump" type="AnimatedSprite2D" parent="." unique_id=1793441842]
+visible = false
+position = Vector2(0, -55)
+sprite_frames = SubResource("SpriteFrames_smehm")
+animation = &"jump"
+
+[node name="Run" type="AnimatedSprite2D" parent="." unique_id=707639730]
+visible = false
+position = Vector2(0, 14)
+sprite_frames = SubResource("SpriteFrames_ur7pv")
+animation = &"run"
+frame_progress = 0.34498033
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=446293769]
+position = Vector2(-1, -2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_463tp")

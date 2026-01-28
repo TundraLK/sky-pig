@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://11770nepxn01"]
+
+[ext_resource type="Script" uid="uid://db0hiwqhbltn1" path="res://scripts/title_screen.gd" id="1_fgkus"]
+
+[node name="TitleScreen" type="Control" unique_id=536105525]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgkus")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1000451217]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 120
+text = "Sky Pig"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BestDistanceLabel" type="Label" parent="." unique_id=1081591976]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 278.0
+offset_right = 131.0
+offset_bottom = 301.0
+text = "75 M"
+
+[node name="TotalCoinsLabel" type="Label" parent="." unique_id=204325155]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 399.0
+offset_right = 567.0
+offset_bottom = 422.0
+text = "150 C"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2090796821]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1995630842]
+layout_mode = 2
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1127110063]
+layout_mode = 2
+text = "Quit"
+
+[node name="Timers" type="Node" parent="." unique_id=319921743]
+
+[node name="SceneChangeTimer" type="Timer" parent="Timers" unique_id=1791345692]
+wait_time = 0.7
+one_shot = true
+
+[node name="QuitTimer" type="Timer" parent="Timers" unique_id=273629658]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="Timers/SceneChangeTimer" to="." method="_on_scene_change_timer_timeout"]
+[connection signal="timeout" from="Timers/QuitTimer" to="." method="_on_quit_timer_timeout"]
