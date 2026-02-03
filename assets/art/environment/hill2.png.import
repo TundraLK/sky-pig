@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4hilo5h2ycif"
-path="res://.godot/imported/pig_run.png-e8d5f6d14e29ae966ac7f2be10974a21.ctex"
+uid="uid://c4rv6ag3arw4"
+path="res://.godot/imported/hill2.png-17e87095100a8cb6788e78bf7fcae18f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/player/pig_run.png"
-dest_files=["res://.godot/imported/pig_run.png-e8d5f6d14e29ae966ac7f2be10974a21.ctex"]
+source_file="res://assets/art/environment/hill2.png"
+dest_files=["res://.godot/imported/hill2.png-17e87095100a8cb6788e78bf7fcae18f.ctex"]
 
 [params]
 
