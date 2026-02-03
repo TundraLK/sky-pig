@@ -2,14 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bim60b60ciygu" path="res://scripts/level_one.gd" id="1_t18mc"]
 [ext_resource type="PackedScene" uid="uid://bnjjo7fcwsomq" path="res://scenes/player.tscn" id="2_843q2"]
+[ext_resource type="Texture2D" uid="uid://dd4dtx6pu0wok" path="res://assets/art/environment/SampleSkyOne.png" id="2_o5wbv"]
 [ext_resource type="PackedScene" uid="uid://du8al0j3dvjgh" path="res://scenes/gameplay_interface.tscn" id="3_843q2"]
-[ext_resource type="Texture2D" uid="uid://3befylv537q6" path="res://assets/art/environment/hill1.png" id="3_o5wbv"]
-[ext_resource type="Texture2D" uid="uid://crgotdhfvc5qs" path="res://assets/art/environment/sky_clouds.png" id="4_5rfim"]
-[ext_resource type="Texture2D" uid="uid://c4rv6ag3arw4" path="res://assets/art/environment/hill2.png" id="4_s6ikc"]
-[ext_resource type="Texture2D" uid="uid://ddpyglgmexqth" path="res://assets/art/environment/tree1.png" id="5_036lt"]
-[ext_resource type="Texture2D" uid="uid://tjg2bu1sw5mf" path="res://assets/art/environment/tree.png" id="6_nlxio"]
-[ext_resource type="Texture2D" uid="uid://kes5fndx30li" path="res://assets/art/environment/Untitled_Artwork.png" id="7_xrbqg"]
-[ext_resource type="Texture2D" uid="uid://b3p273wtwf41q" path="res://assets/art/environment/grass2.png" id="8_dv7nr"]
+[ext_resource type="Texture2D" uid="uid://cdsscmfg6kn8d" path="res://assets/art/environment/hillsone.png" id="3_y8ti4"]
+[ext_resource type="Texture2D" uid="uid://dhgufuvuc513r" path="res://assets/art/environment/treeone.png" id="4_astit"]
+[ext_resource type="Texture2D" uid="uid://bov0mraflswd3" path="res://assets/art/environment/treetwo.png" id="5_o5wbv"]
+[ext_resource type="Texture2D" uid="uid://mw35326ieiqt" path="res://assets/art/environment/grassone.png" id="6_s6ikc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd1xg"]
 size = Vector2(1280, 20)
@@ -23,51 +21,37 @@ autoscroll = Vector2(-25, 0)
 
 [node name="SkyClouds" type="Sprite2D" parent="Parallax2D" unique_id=1862008605]
 position = Vector2(640, 360)
-texture = ExtResource("4_5rfim")
+texture = ExtResource("2_o5wbv")
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=191288673]
 repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-35, 0)
+autoscroll = Vector2(-50, 0)
 
 [node name="Hill1" type="Sprite2D" parent="Parallax2D2" unique_id=1823824608]
 position = Vector2(640, 360)
-texture = ExtResource("3_o5wbv")
-
-[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1637638085]
-repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-45, 0)
-
-[node name="Hill1" type="Sprite2D" parent="Parallax2D3" unique_id=531899399]
-position = Vector2(640, 360)
-texture = ExtResource("4_s6ikc")
+texture = ExtResource("3_y8ti4")
 
 [node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1770752257]
 repeat_size = Vector2(1280, 0)
 autoscroll = Vector2(-150, 0)
 
 [node name="Hill1" type="Sprite2D" parent="Parallax2D4" unique_id=1362119270]
-position = Vector2(640, 360)
-texture = ExtResource("5_036lt")
+position = Vector2(932, 410)
+texture = ExtResource("4_astit")
 
 [node name="Tree" type="Sprite2D" parent="Parallax2D4" unique_id=1873135615]
-position = Vector2(615, 384)
-texture = ExtResource("6_nlxio")
-
-[node name="UntitledArtwork" type="Sprite2D" parent="Parallax2D4" unique_id=1566720756]
-position = Vector2(666.00006, 283)
-scale = Vector2(1.2546875, 1.225)
-texture = ExtResource("7_xrbqg")
+position = Vector2(324, 379.00003)
+scale = Vector2(1.0664063, 1.3066409)
+texture = ExtResource("5_o5wbv")
 
 [node name="Parallax2D5" type="Parallax2D" parent="." unique_id=799230291]
+scroll_offset = Vector2(0, -48)
 repeat_size = Vector2(1280, 0)
 autoscroll = Vector2(-250, 0)
 
 [node name="Hill1" type="Sprite2D" parent="Parallax2D5" unique_id=1879334326]
 position = Vector2(640, 407)
-texture = ExtResource("8_dv7nr")
-
-[node name="Player" parent="." unique_id=1026915142 instance=ExtResource("2_843q2")]
-position = Vector2(205, 507)
+texture = ExtResource("6_s6ikc")
 
 [node name="Borders" type="Node2D" parent="." unique_id=684390834]
 
@@ -80,7 +64,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_cd1xg")
 
 [node name="BottomBorder" type="StaticBody2D" parent="Borders" unique_id=1455352381]
-position = Vector2(640, 720)
+position = Vector2(640, 690)
 collision_layer = 8
 collision_mask = 0
 
@@ -93,26 +77,29 @@ shape = SubResource("RectangleShape2D_cd1xg")
 autostart = true
 
 [node name="CoinTimer" type="Timer" parent="Timers" unique_id=2120049987]
-wait_time = 0.5
 autostart = true
 
 [node name="SceneChangeTimer" type="Timer" parent="Timers" unique_id=1674113446]
 wait_time = 0.5
 
 [node name="DistanceTimer" type="Timer" parent="Timers" unique_id=940577211]
+wait_time = 0.4
 autostart = true
 
-[node name="Hazards" type="Node2D" parent="." unique_id=2101730101]
-
 [node name="Items" type="Node2D" parent="." unique_id=1907776228]
+
+[node name="Player" parent="." unique_id=1026915142 instance=ExtResource("2_843q2")]
+position = Vector2(205, 507)
+
+[node name="Hazards" type="Node2D" parent="." unique_id=2101730101]
 
 [node name="Interface" type="CanvasLayer" parent="." unique_id=212463777]
 
 [node name="GameplayInterface" parent="Interface" unique_id=79158417 instance=ExtResource("3_843q2")]
 
-[connection signal="player_collected" from="Player" to="." method="_on_player_player_collected"]
-[connection signal="player_destroyed" from="Player" to="." method="_on_player_player_destroyed"]
 [connection signal="timeout" from="Timers/HammerSpawnTimer" to="." method="_on_hammer_spawn_timer_timeout"]
 [connection signal="timeout" from="Timers/CoinTimer" to="." method="_on_coin_timer_timeout"]
 [connection signal="timeout" from="Timers/SceneChangeTimer" to="." method="_on_scene_change_timer_timeout"]
 [connection signal="timeout" from="Timers/DistanceTimer" to="." method="_on_distance_timer_timeout"]
+[connection signal="player_collected" from="Player" to="." method="_on_player_player_collected"]
+[connection signal="player_destroyed" from="Player" to="." method="_on_player_player_destroyed"]

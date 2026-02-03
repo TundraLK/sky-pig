@@ -5,7 +5,7 @@ var direction_x : int = -1
 
 
 func _ready() -> void:
-	position = Vector2(1400, randi_range(120, 600))
+	position = Vector2(1400, randi_range(50, 650))
 	
 
 func _physics_process(delta: float) -> void:

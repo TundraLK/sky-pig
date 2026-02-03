@@ -109,29 +109,28 @@ radius = 83.0
 height = 316.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1026915142]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.35, 0.35)
 collision_mask = 14
 script = ExtResource("1_vecdy")
 jump_strength = 50
 gravity = 1250
 
 [node name="Fall" type="AnimatedSprite2D" parent="." unique_id=1644498521]
-position = Vector2(0, -55)
+position = Vector2(-60, 64)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"fall"
 frame_progress = 0.5713346
 
 [node name="Jump" type="AnimatedSprite2D" parent="." unique_id=1793441842]
 visible = false
-position = Vector2(0, -55)
+position = Vector2(-66, 58)
 sprite_frames = SubResource("SpriteFrames_smehm")
 animation = &"jump"
 frame = 4
 frame_progress = 0.6509417
 
 [node name="Run" type="AnimatedSprite2D" parent="." unique_id=707639730]
-visible = false
-position = Vector2(0, 14)
+position = Vector2(-32, 52)
 sprite_frames = SubResource("SpriteFrames_ur7pv")
 animation = &"run"
 frame_progress = 0.28711465

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://du8al0j3dvjgh"]
 
 [ext_resource type="Script" uid="uid://bptmgw6f5jgss" path="res://scripts/gameplay_interface.gd" id="1_lp4ju"]
-[ext_resource type="Texture2D" uid="uid://dks2bq8xj8jfj" path="res://icon.svg" id="2_3eo6s"]
+[ext_resource type="Texture2D" uid="uid://8muox0pbdoav" path="res://assets/art/environment/pigcoinstaticone.png" id="2_lp4ju"]
 
 [node name="GameplayInterface" type="Control" unique_id=79158417]
 layout_mode = 3
@@ -28,8 +28,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_top = 100.0
-offset_right = -50.0
+offset_left = -133.0
+offset_top = 101.0
+offset_right = -73.0
+offset_bottom = 150.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 35
 text = "150"
@@ -37,13 +39,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1338847980]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_top = 110.0
-offset_right = -20.0
+offset_left = -89.0
+offset_top = 100.0
+offset_right = 423.0
+offset_bottom = 612.0
 grow_horizontal = 0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_3eo6s")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_lp4ju")
